@@ -1,0 +1,13 @@
+---
+ - hosts: all
+   tasks:
+    - name: pull the image
+      raw: docker pull kanduriprasanth/docker-tomcat
+
+    - name: remove the container if present
+      raw: docker container rm -f mytom
+      ignore_errors: true
+
+    - name: run the container
+      raw: docker container create --p 7071:8080 --name mytom kanduriprasanth/docker-tomcat
+      raw: docker container start mytom
