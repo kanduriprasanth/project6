@@ -9,5 +9,6 @@
       ignore_errors: true
 
     - name: run the container
-      raw: docker container create -p 7071:8080 --name mytom kanduriprasanth/docker-tomcat
+      raw: docker run -it -p 7071:8080 --name mytom kanduriprasanth/docker-tomcat
       raw: docker container start mytom
+...
